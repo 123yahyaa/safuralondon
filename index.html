@@ -440,12 +440,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('featured-grid');
   if (grid && typeof getFeaturedProducts !== 'undefined') {
+    const cards = [];
     getFeaturedProducts().forEach((product, i) => {
       const card = buildProductCard(product);
       if (i > 0) card.classList.add(`reveal-delay-${Math.min(i, 4)}`);
       grid.appendChild(card);
+      cards.push(card);
     });
-    initReveal();
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      cards.forEach(c => c.classList.add('visible'));
+    }));
   }
 });
 </script>
