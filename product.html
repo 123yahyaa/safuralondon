@@ -168,24 +168,25 @@ function renderProduct(product) {
   detail.innerHTML = `
     <div class="product-detail-inner">
       <!-- Gallery -->
-      <div class="product-gallery" role="img" aria-label="${product.name} abaya in ${product.color}">
-        <div class="product-main-img" style="background:${product.color};display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
-          <!-- Fabric texture overlay -->
+      <div class="product-gallery" role="img" aria-label="${product.name} abaya">
+        <div class="product-main-img" style="position:relative;overflow:hidden;${product.image ? '' : `background:${product.color};display:flex;align-items:center;justify-content:center;`}">
+          ${product.image ? `
+          <img src="${product.image}" alt="${product.name} abaya by Safura London" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div style="position:absolute;inset-x:0;bottom:0;height:45%;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 100%);z-index:1;pointer-events:none"></div>
+          ` : `
           <div style="position:absolute;inset:0;opacity:0.04;background:repeating-linear-gradient(45deg,rgba(255,255,255,.4) 0,rgba(255,255,255,.4) 1px,transparent 0,transparent 50%);background-size:6px 6px"></div>
-          <!-- Decorative text -->
           <div style="position:absolute;bottom:10%;left:50%;transform:translateX(-50%);text-align:center;z-index:0;pointer-events:none">
             <div style="font-family:var(--font-display);font-size:clamp(4rem,12vw,9rem);color:${product.accentColor};opacity:0.08;line-height:1;font-style:italic;white-space:nowrap">${product.arabic}</div>
           </div>
-          <!-- Abaya silhouette -->
           <svg viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg" fill="${product.accentColor}" style="width:min(42%,260px);opacity:0.28;position:relative;z-index:1;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4))">
             <ellipse cx="110" cy="36" rx="26" ry="32"/>
             <path d="M 72 66 Q 65 86 58 106 L 8 195 L 28 202 L 66 128 L 66 395 L 154 395 L 154 128 L 192 202 L 212 195 L 162 106 Q 155 86 148 66 Z"/>
             <line x1="66" y1="175" x2="154" y2="175" stroke="${product.accentColor}" stroke-width="1" opacity="0.3"/>
           </svg>
-          <!-- Collection name -->
+          `}
           <div style="position:absolute;bottom:2.5rem;left:2.5rem;z-index:2">
-            <div style="font-family:var(--font-logo);font-size:0.55rem;letter-spacing:0.3em;color:rgba(201,169,110,0.6);margin-bottom:0.4rem">SAFURA LONDON</div>
-            <div style="font-family:var(--font-display);font-size:1.5rem;color:${product.accentColor};opacity:0.6;font-style:italic">${product.name}</div>
+            <div style="font-family:var(--font-logo);font-size:0.55rem;letter-spacing:0.3em;color:${product.image ? 'rgba(255,255,255,0.7)' : 'rgba(201,169,110,0.6)'};margin-bottom:0.4rem">SAFURA LONDON</div>
+            <div style="font-family:var(--font-display);font-size:1.5rem;color:${product.image ? '#fff' : product.accentColor};opacity:${product.image ? '0.95' : '0.6'};font-style:italic">${product.name}</div>
           </div>
           ${product.badge ? `<div class="product-badge" style="top:2rem;left:2rem">${product.badge}</div>` : ''}
         </div>

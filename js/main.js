@@ -110,16 +110,20 @@ function buildProductCard(product) {
   card.href = `product.html?id=${product.slug}`;
   card.setAttribute('aria-label', `View ${product.name} Abaya`);
 
-  card.innerHTML = `
-    <div class="product-img-wrap">
-      <div class="product-swatch" style="background:${product.color};transition:transform 0.7s var(--ease)">
+  const mediaHTML = product.image
+    ? `<img src="${product.image}" alt="${product.name} abaya by Safura London" class="product-img" loading="lazy">`
+    : `<div class="product-swatch" style="background:${product.color};transition:transform 0.7s var(--ease)">
         <div class="product-swatch-inner">
           <svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" fill="${product.accentColor}">
             <ellipse cx="90" cy="30" rx="22" ry="28"/>
             <path d="M 60 55 Q 55 70 50 85 L 10 160 L 25 165 L 55 105 L 55 320 L 125 320 L 125 105 L 155 165 L 170 160 L 130 85 Q 125 70 120 55 Z"/>
           </svg>
         </div>
-      </div>
+      </div>`;
+
+  card.innerHTML = `
+    <div class="product-img-wrap">
+      ${mediaHTML}
       ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
       <div class="product-quick-add">
         <a href="product.html?id=${product.slug}" class="btn btn-outline-gold btn-full" style="font-size:0.62rem">View Collection</a>

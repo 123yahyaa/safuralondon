@@ -21,6 +21,7 @@ const COLLECTIONS = [
     price: 285,
     color: '#0F0F0F',
     accentColor: '#C9A96E',
+    image: 'images/al-nur.jpg',
     fabric: 'Premium Nida with gold-thread embroidery',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -41,6 +42,7 @@ const COLLECTIONS = [
     price: 195,
     color: '#3D0F1E',
     accentColor: '#E8B4C4',
+    image: 'images/laleh.jpg',
     fabric: 'Luxury crepe de chine',
     care: 'Gentle hand wash or dry clean',
     origin: 'Handcrafted in London',
@@ -61,6 +63,7 @@ const COLLECTIONS = [
     price: 165,
     color: '#F0E8D5',
     accentColor: '#8B7355',
+    image: 'images/zahra.jpg',
     fabric: 'Italian viscose georgette',
     care: 'Dry clean recommended',
     origin: 'Handcrafted in London',
@@ -81,6 +84,7 @@ const COLLECTIONS = [
     price: 175,
     color: '#12243A',
     accentColor: '#B8CCE0',
+    image: 'images/yasmin.jpg',
     fabric: 'Matte satin with jersey lining',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -101,6 +105,7 @@ const COLLECTIONS = [
     price: 210,
     color: '#1A3020',
     accentColor: '#7FB88A',
+    image: 'images/rania.jpg',
     fabric: 'Silk-touch Nida',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -121,6 +126,7 @@ const COLLECTIONS = [
     price: 245,
     color: '#C9A96E',
     accentColor: '#F5E6C8',
+    image: 'images/aziza.jpg',
     fabric: 'Champagne jacquard with silk lining',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -141,6 +147,7 @@ const COLLECTIONS = [
     price: 220,
     color: '#261040',
     accentColor: '#A07EC8',
+    image: 'images/samira.jpg',
     fabric: 'Double-layered chiffon',
     care: 'Dry clean recommended',
     origin: 'Handcrafted in London',
@@ -161,6 +168,7 @@ const COLLECTIONS = [
     price: 155,
     color: '#3A1520',
     accentColor: '#E8B4B0',
+    image: 'images/nadia.jpg',
     fabric: 'Rose-dusty crepe',
     care: 'Gentle machine wash, 30°C',
     origin: 'Handcrafted in London',
@@ -181,6 +189,7 @@ const COLLECTIONS = [
     price: 185,
     color: '#3A2510',
     accentColor: '#C8A46E',
+    image: 'images/fatima.jpg',
     fabric: 'Camel wool-touch blend',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -201,6 +210,7 @@ const COLLECTIONS = [
     price: 195,
     color: '#1E1E28',
     accentColor: '#C8C8DC',
+    image: 'images/soraya.jpg',
     fabric: 'Dove grey satin-back crepe',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -221,6 +231,7 @@ const COLLECTIONS = [
     price: 235,
     color: '#080818',
     accentColor: '#4A6ABA',
+    image: 'images/layla.jpg',
     fabric: 'Midnight-blue duchess satin',
     care: 'Dry clean only',
     origin: 'Handcrafted in London',
@@ -241,6 +252,7 @@ const COLLECTIONS = [
     price: 350,
     color: '#0A0A0A',
     accentColor: '#C9A96E',
+    image: 'images/safura.jpg',
     fabric: 'Italian pure silk with hand embroidery',
     care: 'Dry clean only',
     origin: 'Fully handcrafted in London',
@@ -253,22 +265,18 @@ const COLLECTIONS = [
   },
 ];
 
-/* Helper to get collection by slug */
 function getProduct(slug) {
   return COLLECTIONS.find(c => c.slug === slug) || null;
 }
 
-/* Helper to get featured products */
 function getFeaturedProducts() {
   return COLLECTIONS.filter(c => c.featured);
 }
 
-/* Abaya SVG silhouette (used in swatches) */
 const ABAYA_SVG = `
 <svg viewBox="0 0 180 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
   <ellipse cx="90" cy="30" rx="22" ry="28"/>
   <path d="M 60 55 Q 55 70 50 85 L 10 160 L 25 165 L 55 105 L 55 320 L 125 320 L 125 105 L 155 165 L 170 160 L 130 85 Q 125 70 120 55 Z"/>
-</svg>
-`;
+</svg>`;
 
 if (typeof module !== 'undefined') module.exports = { COLLECTIONS, SIZES, getProduct, getFeaturedProducts, ABAYA_SVG };
